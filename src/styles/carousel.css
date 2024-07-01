@@ -1,0 +1,52 @@
+.carousel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .image-container-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 10px;
+  }
+  
+  .image-container {
+    flex: 0 0 25%; /* adjust the width of each image container */
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: 150px; /* adjust the height of each image */
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  .navigation button {
+    background-color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .navigation button:hover {
+    background-color: #ddd;
+  }

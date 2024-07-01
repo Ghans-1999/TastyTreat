@@ -26,7 +26,7 @@
     "web-vitals": "^1.1.2",
     "react-multi-carousel": "^2.8.5",
     "react-responsive-carousel": "3.2.23",
-    "react-leaflet":"4.2.1",
+    "react-leaflet":"3.2.1",
     "leaflet":"1.9.4"
 
   },

@@ -21,7 +21,7 @@ function MapComponent( ) {
   }, []);
 
   const CustomIcon = new Icon({
-    iconUrl: "https://cdn-icons-png.flaticon.com/512/5591/5591266.png",
+    iconUrl: "https://cdn-icons-png.flaticon.com/128/684/684908.png",
     iconSize: [38,38]
   })
   const markers = [

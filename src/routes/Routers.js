@@ -8,7 +8,9 @@ import PizzaDetails from "../pages/PizzaDetails";
 import Cart from "../pages/Cart";
 import Checkout from "../pages/Checkout";
 import Collections from "../pages/Collections"
-import Map from "../pages/MapComponent"
+import Map from "../pages/MapComponent";
+import PreviousOrders from "../pages/PreviousOrders";
+import Track from "../pages/Track";
 
 const Routers = () => {
   return (
@@ -21,6 +23,8 @@ const Routers = () => {
       <Route path="/pizzas/:id" element={<PizzaDetails />} />
       <Route path="/collection/:category" element={<Collections/>} />
       <Route path="/map" element={<Map />} />
+      <Route path="/orders" element={<PreviousOrders />} />
+      <Route path="/track/:id" element={<Track />} />
     </Routes>
   );
 };

@@ -86,7 +86,7 @@ function Track() {
   const markers = [
     {
       geocode: [mylatitude, mylongitude],
-      popUp: "Food",
+      popUp: "You",
       icon: CustomerIcon,
     },
     {
@@ -114,7 +114,7 @@ function Track() {
         icon={CustomIcon}
       ></Marker-->*/}
       {markers.map((marker, index) => (
-        <Marker position={marker.geocode} icon={marker.geocode.icon}>
+        <Marker position={marker.geocode} icon={CustomIcon}>
           <Popup>{marker.popUp}</Popup>
         </Marker>
       ))}

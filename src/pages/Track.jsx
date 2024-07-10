@@ -19,7 +19,7 @@ function Track() {
   const [mapCenter, setMapCenter] = useState([mylatitude, mylongitude]);
   const [mapZoom, setMapZoom] = useState(18);
 
-  const CustomIcon = new Icon({
+  const CustomerIcon = new Icon({
     iconUrl: "https://cdn-icons-png.flaticon.com/128/684/684908.png", //https://cdn-icons-png.flaticon.com/128/15746/15746151.png  https://cdn-icons-png.flaticon.com/128/684/684908.png
     iconSize: [38, 38],
   });
@@ -86,7 +86,8 @@ function Track() {
   const markers = [
     {
       geocode: [mylatitude, mylongitude],
-      popUp: "You"
+      popUp: "Food",
+      icon: CustomerIcon,
     },
     {
       geocode: [parcellatitude, parcellongitude],
@@ -113,7 +114,7 @@ function Track() {
         icon={CustomIcon}
       ></Marker-->*/}
       {markers.map((marker, index) => (
-        <Marker position={marker.geocode} icon={CustomIcon}>
+        <Marker position={marker.geocode} icon={marker.geocode.icon}>
           <Popup>{marker.popUp}</Popup>
         </Marker>
       ))}

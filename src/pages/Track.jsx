@@ -1,5 +1,7 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useParams, Link } from "react-router-dom";
+import { Card, CardBody, CardTitle, CardText, CardImg } from "reactstrap";
+import { FaUser, FaPhone } from "react-icons/fa";
 import "leaflet/dist/leaflet.css";
 import { Icon } from "leaflet";
 import { MdLocationOn } from "react-icons/md";
@@ -18,8 +20,9 @@ function Track() {
   const [mylongitude, setMyLongitude] = useState(72.9106087);
   const [mapCenter, setMapCenter] = useState([mylatitude, mylongitude]);
   const [mapZoom, setMapZoom] = useState(18);
+  const [deliveryName, setDeliveryName] = useState("");
 
-  const CustomerIcon = new Icon({
+  const CustomIcon = new Icon({
     iconUrl: "https://cdn-icons-png.flaticon.com/128/684/684908.png", //https://cdn-icons-png.flaticon.com/128/15746/15746151.png  https://cdn-icons-png.flaticon.com/128/684/684908.png
     iconSize: [38, 38],
   });
@@ -30,6 +33,8 @@ function Track() {
   });
 
   const [intTime, setIntTime] = useState(0);
+  const [DeliverymanName, setDeliverymanName] = useState("");
+  const [DeliverymanContact, setDeliverymanContact] = useState(0);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
@@ -52,6 +57,8 @@ function Track() {
         if (order) {
           setParcelLatitude(parseFloat(order.parcellattitude));
           setParcelLongitude(parseFloat(order.parcellongitude));
+          setDeliverymanName(order.DeliverymanName);
+          setDeliverymanContact(order.DeliverymanContact);
         }
         console.log(parcellatitude);
         console.log(parcellongitude);
@@ -86,13 +93,22 @@ function Track() {
   const markers = [
     {
       geocode: [mylatitude, mylongitude],
-      popUp: "Food",
-      icon: CustomerIcon,
+      popUp: "You",
     },
     {
       geocode: [parcellatitude, parcellongitude],
-      popUp: `Location : ${parcellatitude} , ${parcellongitude}`,
-      icon: DeliveryIcon,
+      popUp: (
+        <Card>
+          <CardBody>
+            <CardTitle>
+              <FaUser /> {DeliverymanName}
+            </CardTitle>
+            <CardText>
+              <FaPhone /> {DeliverymanContact}
+            </CardText>
+          </CardBody>
+        </Card>
+      ),
     },
   ];
 
@@ -114,7 +130,7 @@ function Track() {
         icon={CustomIcon}
       ></Marker-->*/}
       {markers.map((marker, index) => (
-        <Marker position={marker.geocode} icon={marker.geocode.icon}>
+        <Marker position={marker.geocode} icon={CustomIcon}>
           <Popup>{marker.popUp}</Popup>
         </Marker>
       ))}

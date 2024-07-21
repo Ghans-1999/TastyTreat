@@ -15,6 +15,26 @@
   margin-bottom: 0.7rem;
 }
 
+.spinner-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.spinner-container span {
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+@media only screen and (max-width: 480px) {
+  .checkoutMessage {
+    margin: 1rem 1rem;
+  }
+}
+
 @media only screen and (max-width: 480px) {
   .checkoutMessage {
     margin: 1rem 1rem;

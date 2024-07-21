@@ -113,7 +113,7 @@
   animation: 1s animation;
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 375px) {
   .product__images {
     display: flex;
     flex-direction: row;
@@ -128,7 +128,6 @@
 
   .category.mb-5 {
     display: inline-block;
-    margin-right: 10px;
   }
 
   .extraIngredientsGrid {
@@ -137,7 +136,7 @@
 }
 
 .tabs {
-  margin: 20px;
+  margin: 0px;
 }
 
 .tab-list {

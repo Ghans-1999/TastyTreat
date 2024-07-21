@@ -1,9 +1,9 @@
 import React, { useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 
 import { Container } from "reactstrap";
 import logo from "../../assets/images/res-logo.png";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import { cartUiActions } from "../../store/shopping-cart/cartUiSlice";
@@ -30,7 +30,7 @@ const nav__links = [
   {
     display: "Orders",
     path: "/orders",
-  }
+  },
 ];
 
 const Header = () => {
@@ -44,6 +44,11 @@ const Header = () => {
 
   const toggleCart = () => {
     dispatch(cartUiActions.toggle());
+  };
+
+  const Tologin = () => {
+    const navigate = useNavigate();
+    navigate("/home", { replace: true });
   };
 
   console.log(menuRef?.current?.classList.value);
@@ -103,9 +108,13 @@ const Header = () => {
               <i className="ri-shopping-basket-line"></i>
               <span className="cart__badge">{totalQuantity}</span>
             </span>
-            
+            <span className="cart__icon" onClick={() => navigate("/login")}>
+              <i className="ri-profile-line"></i>
+            </span>
             <span className="mobile__menu" onClick={toggleMenu}>
-              <i className="ri-menu-line"></i>
+              <i className="ri-menu-line">
+                <Link to="/login"></Link>
+              </i>
             </span>
           </div>
         </div>

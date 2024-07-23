@@ -26,6 +26,19 @@ function App() {
     // Req user for notification permission
     requestPermission();
   }, []);
+
+   useEffect(() => {
+    const script1 = document.createElement("script");
+    script1.type = "text/javascript";
+    script1.src = "https://service.force.com/embeddedservice/5.0/esw.min.js";
+    document.body.appendChild(script1);
+
+    const script2 = document.createElement("script");
+    script2.src =
+      "https://cdn.jsdelivr.net/gh/Ghans-1999/LiveChat-Omni/chat.js";
+    document.body.appendChild(script2);
+  }, []);
+  
   return <Layout />;
 }
 
